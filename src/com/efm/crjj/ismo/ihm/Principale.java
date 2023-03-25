@@ -108,6 +108,24 @@ public class Principale extends JFrame {
 
 		//JButton btnNewButton = new MyButton("Engestrer" ,"/com/efm/crjj/ismo/img/more.png");
 		JButton btnNewButton = new JButton("Enregistrer");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(textField.getText()=="" || textField_1.getText()=="") {
+					JOptionPane.showMessageDialog(null, "Remplir Tous les champs");
+					return;
+				}
+				Employe em = new Employe();
+				em.setId(12);
+				em.setNom(textField.getText());
+				em.setDepartement(depart[comboBox.getSelectedIndex()]);
+				em.setSalaire(Double.valueOf(textField_1.getText()));
+				if(emp.save(em)) {
+					JOptionPane.showMessageDialog(null, "Ajouter Avec Success");
+					table.setModel(new EmployeModel(emp.getAll()));
+				}
+				
+			}
+		});
 
 		ImageIcon image6= new ImageIcon(getClass().getResource("/com/efm/crjj/ismo/img/more.png"));
 		btnNewButton.setIcon(image6);
