@@ -134,13 +134,15 @@ public class Principale extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int index=table.getSelectedRow();
 				if(index==-1) {
-					JOptionPane.showConfirmDialog(null, "Rien n'est selectionner");
+					JOptionPane.showMessageDialog(null, "Rien");
 					return;
 				}
-				Employe em= emp.getOne((int)table.getModel().getValueAt(index, 0));
-				if(emp.delete(em)) {
-					JOptionPane.showConfirmDialog(null, "Supprimmer Avec Success");
-					table.setModel(new EmployeModel(emp.getAll()));
+				if(JOptionPane.showConfirmDialog(null, "Are you sure")==JOptionPane.YES_OPTION) {
+					Employe em= emp.getOne((int)table.getModel().getValueAt(index, 0));
+					if(emp.delete(em)) {
+						JOptionPane.showMessageDialog(null, "Supprimmer Avec Success");
+						table.setModel(new EmployeModel(emp.getAll()));
+					}
 				}
 			}
 		});
