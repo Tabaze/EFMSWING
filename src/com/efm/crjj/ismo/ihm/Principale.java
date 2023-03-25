@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -28,6 +29,8 @@ import javax.swing.JScrollPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Principale extends JFrame {
 
@@ -127,6 +130,20 @@ public class Principale extends JFrame {
 		table.setModel(new EmployeModel(emp.getAll()));
 		
 		JButton btnNewButton_1 = new JButton("Supprimer");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int index=table.getSelectedRow();
+				if(index==-1) {
+					JOptionPane.showConfirmDialog(null, "Rien n'est selectionner");
+					return;
+				}
+				Employe em= emp.getOne((int)table.getModel().getValueAt(index, 0));
+				if(emp.delete(em)) {
+					JOptionPane.showConfirmDialog(null, "Supprimmer Avec Success");
+					table.setModel(new EmployeModel(emp.getAll()));
+				}
+			}
+		});
 		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
 		image6 = new ImageIcon(getClass().getResource("/com/efm/crjj/ismo/img/bin.png"));
 		btnNewButton_1.setIcon(image6);
@@ -137,8 +154,8 @@ public class Principale extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Imprimer");
 
 		image6= new ImageIcon(getClass().getResource("/com/efm/crjj/ismo/img/printer.png"));
-		btnNewButton_1.setIcon(image6);
-		btnNewButton_1.setIconTextGap(5);
+		btnNewButton_1_1.setIcon(image6);
+		btnNewButton_1_1.setIconTextGap(5);
 		btnNewButton_1_1.setBounds(327, 286, 135, 23);
 		panel_1.add(btnNewButton_1_1);
 		
