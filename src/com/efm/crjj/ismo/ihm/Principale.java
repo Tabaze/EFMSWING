@@ -8,12 +8,19 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import com.efm.crjj.ismo.metier.IMetier;
+import com.efm.crjj.ismo.metier.MetierEmploye;
+import com.efm.crjj.ismo.model.Employe;
+import com.efm.crjj.ismo.utils.DoubleValidate;
+
 import javax.swing.JScrollPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -24,7 +31,10 @@ public class Principale extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	IMetier<Employe> emp=new MetierEmploye();
 	private JTable table;
+	private static String[] depart = { "RH", "Finance", "Production" };
+	private DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>(depart);
 
 	/**
 	 * Launch the application.
@@ -78,6 +88,7 @@ public class Principale extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(10, 91, 222, 22);
 		panel.add(comboBox);
+		comboBox.setModel(model);
 		
 		JLabel lblNewLabel_2 = new JLabel("Salaire : ");
 		lblNewLabel_2.setBounds(10, 129, 222, 14);
@@ -86,6 +97,7 @@ public class Principale extends JFrame {
 		textField_1 = new JTextField();
 		textField_1.setBounds(10, 154, 222, 20);
 		panel.add(textField_1);
+		textField_1.setDocument(new DoubleValidate());
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Enregistrer");
