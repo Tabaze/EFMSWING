@@ -8,5 +8,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Driver"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HibernateLib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Report"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Chart"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
