@@ -1,10 +1,28 @@
 package com.efm.crjj.ismo.model;
 
-public class Employe {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="T_Employe")
+public class Employe {
+	
+	
+	@Id
+	@Column(name="id")
+	@GeneratedValue
 	private int id;
+	
+	@Column(name="nom")
 	private String nom;
+	
+	@Column(name="departement")
 	private String departement;
+	
+	@Column(name="salaire")
 	private double salaire;
 
 	public Employe() {
