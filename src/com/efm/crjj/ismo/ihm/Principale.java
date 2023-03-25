@@ -41,6 +41,7 @@ public class Principale extends JFrame {
 	private JTable table;
 	private static String[] depart = { "RH", "Finance", "Production" };
 	private DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>(depart);
+	private JLabel lblNewLabel_3_1;
 
 	/**
 	 * Launch the application.
@@ -121,7 +122,7 @@ public class Principale extends JFrame {
 				em.setSalaire(Double.valueOf(textField_1.getText()));
 				if(emp.save(em)) {
 					JOptionPane.showMessageDialog(null, "Ajouter Avec Success");
-					table.setModel(new EmployeModel(emp.getAll()));
+					load();
 				}
 				
 			}
@@ -159,7 +160,7 @@ public class Principale extends JFrame {
 					Employe em= emp.getOne((int)table.getModel().getValueAt(index, 0));
 					if(emp.delete(em)) {
 						JOptionPane.showMessageDialog(null, "Supprimmer Avec Success");
-						table.setModel(new EmployeModel(emp.getAll()));
+						load();
 					}
 				}
 			}
@@ -191,7 +192,7 @@ public class Principale extends JFrame {
 		lblNewLabel_3.setBounds(10, 25, 344, 44);
 		panel_2.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("0");
+		lblNewLabel_3_1 = new JLabel("0");
 		lblNewLabel_3_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
 		lblNewLabel_3_1.setBounds(10, 80, 344, 44);
@@ -201,5 +202,10 @@ public class Principale extends JFrame {
 		panel_3.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Nombre Employe par departement", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_3.setBounds(646, 124, 537, 387);
 		contentPane.add(panel_3);
+		load();
+	}
+	public void load() {
+		table.setModel(new EmployeModel(emp.getAll()));
+		lblNewLabel_3_1.setText(String.valueOf(table.getModel().getRowCount()));
 	}
 }
