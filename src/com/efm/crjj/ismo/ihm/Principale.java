@@ -9,10 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -102,6 +105,10 @@ public class Principale extends JFrame {
 
 		//JButton btnNewButton = new MyButton("Engestrer" ,"/com/efm/crjj/ismo/img/more.png");
 		JButton btnNewButton = new JButton("Enregistrer");
+
+		ImageIcon image6= new ImageIcon(getClass().getResource("/com/efm/crjj/ismo/img/more.png"));
+		btnNewButton.setIcon(image6);
+		btnNewButton.setIconTextGap(5);
 		btnNewButton.setBounds(10, 185, 222, 23);
 		panel.add(btnNewButton);
 		
@@ -120,10 +127,18 @@ public class Principale extends JFrame {
 		table.setModel(new EmployeModel(emp.getAll()));
 		
 		JButton btnNewButton_1 = new JButton("Supprimer");
+		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
+		image6 = new ImageIcon(getClass().getResource("/com/efm/crjj/ismo/img/bin.png"));
+		btnNewButton_1.setIcon(image6);
+		btnNewButton_1.setIconTextGap(5);
 		btnNewButton_1.setBounds(472, 286, 124, 23);
 		panel_1.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Imprimer");
+
+		image6= new ImageIcon(getClass().getResource("/com/efm/crjj/ismo/img/printer.png"));
+		btnNewButton_1.setIcon(image6);
+		btnNewButton_1.setIconTextGap(5);
 		btnNewButton_1_1.setBounds(327, 286, 135, 23);
 		panel_1.add(btnNewButton_1_1);
 		

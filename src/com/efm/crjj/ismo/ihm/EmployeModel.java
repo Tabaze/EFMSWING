@@ -8,7 +8,7 @@ import com.efm.crjj.ismo.model.Employe;
 public class EmployeModel extends AbstractTableModel{
 
 	
-	String[] cols= {
+	String[] cols= {"Code",
 			"Nom et Prenom", "Departement", "Salaire"
 		};
 	List<Employe> Employes = new ArrayList<Employe>();
@@ -34,13 +34,14 @@ public class EmployeModel extends AbstractTableModel{
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		Employe p = Employes.get(rowIndex);
-
 		switch (columnIndex) {
 		case 0:
 			return p.getNom();
 		case 1:
-			return p.getDepartement();
+			return p.getNom();
 		case 2:
+			return p.getDepartement();
+		case 3:
 			return p.getSalaire();
 		}
 		return "";
