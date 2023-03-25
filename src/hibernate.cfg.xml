@@ -2,9 +2,9 @@
  <session-factory name="">
   <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
   <property name="hibernate.connection.password">tabaze2002</property>
-  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbbexam</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbEmployes</property>
   <property name="hibernate.connection.username">root</property>
-  <property name="hibernate.default_schema">dbbexam</property>
+  <property name="hibernate.default_schema">dbEmployes</property>
   <property name="hibernate.id.new_generator_mappings">true</property>
   <property name="hbm2ddl.auto">update</property>
   <property name="show_sql">true</property>

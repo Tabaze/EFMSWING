@@ -99,7 +99,8 @@ public class Principale extends JFrame {
 		panel.add(textField_1);
 		textField_1.setDocument(new DoubleValidate());
 		textField_1.setColumns(10);
-		
+
+		//JButton btnNewButton = new MyButton("Engestrer" ,"/com/efm/crjj/ismo/img/more.png");
 		JButton btnNewButton = new JButton("Enregistrer");
 		btnNewButton.setBounds(10, 185, 222, 23);
 		panel.add(btnNewButton);
@@ -116,15 +117,7 @@ public class Principale extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Zaid alag", "RH", null},
-				{"ZHRI Riyad", "Finance", "34000"},
-			},
-			new String[] {
-				"Nom et Prenom", "Departement", "Salaire"
-			}
-		));
+		table.setModel(new EmployeModel(emp.getAll()));
 		
 		JButton btnNewButton_1 = new JButton("Supprimer");
 		btnNewButton_1.setBounds(472, 286, 124, 23);

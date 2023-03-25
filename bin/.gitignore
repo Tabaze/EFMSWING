@@ -1,2 +1,4 @@
 /com/
 /hibernate.cfg.xml
+/ma/
+/hibernate.cfg.out.xml
