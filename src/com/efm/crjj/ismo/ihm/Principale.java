@@ -31,11 +31,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.general.PieDataset;
+//import org.jfree.chart.ChartFactory;
+//import org.jfree.chart.ChartPanel;
+//import org.jfree.chart.JFreeChart;
+//import org.jfree.data.general.DefaultPieDataset;
+//import org.jfree.data.general.PieDataset;
 
 public class Principale extends JFrame {
 
@@ -213,35 +213,35 @@ public class Principale extends JFrame {
 		table.setModel(new EmployeModel(emp.getAll()));
 		lblNewLabel_3_1.setText(String.valueOf(table.getModel().getRowCount()));
 	}
-	private static PieDataset createDataset() {
-		DefaultPieDataset dataset = new DefaultPieDataset();
-		
-       for(String d : depart) {
-			
-			int nb =0;
-			for (Employe e : employes)
-				if(e.getDepartement().equals(d))
-				nb ++;
-			
-			dataset.setValue(d, nb);
-		}
-		
-		return dataset;
-	}
-
-	private static JFreeChart createChart(PieDataset dataset) {
-		JFreeChart chart = ChartFactory.createPieChart("Les employes par departement", // chart title
-				dataset, // data
-				true, // include legend
-				true, false);
-
-		return chart;
-	}
-
-	public static ChartPanel createPanelDepense() {
-		JFreeChart chart = createChart(createDataset());
-		ChartPanel panel = new ChartPanel(chart);
-		panel.setPreferredSize(new Dimension(500,290));
-		return panel;
-	}
+//	private static PieDataset createDataset() {
+//		DefaultPieDataset dataset = new DefaultPieDataset();
+//		
+//       for(String d : depart) {
+//			
+//			int nb =0;
+//			for (Employe e : employes)
+//				if(e.getDepartement().equals(d))
+//				nb ++;
+//			
+//			dataset.setValue(d, nb);
+//		}
+//		
+//		return dataset;
+//	}
+//
+//	private static JFreeChart createChart(PieDataset dataset) {
+//		JFreeChart chart = ChartFactory.createPieChart("Les employes par departement", // chart title
+//				dataset, // data
+//				true, // include legend
+//				true, false);
+//
+//		return chart;
+//	}
+//
+//	public static ChartPanel createPanelDepense() {
+//		JFreeChart chart = createChart(createDataset());
+//		ChartPanel panel = new ChartPanel(chart);
+//		panel.setPreferredSize(new Dimension(500,290));
+//		return panel;
+//	}
 }

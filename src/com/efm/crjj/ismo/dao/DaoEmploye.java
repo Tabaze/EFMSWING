@@ -43,8 +43,6 @@ public class DaoEmploye implements IDao<Employe> {
 
 			Object o = session.save(obj);
 
-			System.out.println(o);
-
 			t.commit();
 			session.close();
 
